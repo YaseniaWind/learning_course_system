@@ -498,6 +498,8 @@
       </svg>
     </button>
 
+    <button @click="$emit('addImage')"  class="btn btn-outline-secondary btn_tiptap btn_table">img</button>
+
     <button type="button"  class="btn btn-link btn_tiptap"  data-bs-toggle="modal" data-bs-target="#largeModal"> Настройки таблицы</button>
               <div class="modal fade" id="largeModal" tabindex="-1" aria-hidden="true" style="display: none; z-index: 5;">
                 <div class="modal-dialog modal-lg">
@@ -669,6 +671,8 @@
             >
               Удалить таблицу
             </button>
+
+
 
                     </div>
                     <!-- <div class="modal-footer">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use Hash;
 
@@ -53,7 +54,7 @@ class HomeController extends Controller
 
     public function create_user(Request $request){
 
-        $users_list = User::all();
+
 
         $validated = $request->validate([
             'name' => 'required',
@@ -61,25 +62,23 @@ class HomeController extends Controller
             'password' => 'required',
         ]);
 
+
+        $token = Str::random(60);
         $user = User::where('email','=', $validated['email'])->get();
-        $warning = 'User already exist';
-        if(count($user)) return view('admin.home.users', [
-            'users_list' => $users_list,
-            'warning' => $warning
-        ]);
-
-
-
+        if(count($user)) return 'Пользователь с таким email уже существует!';
 
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
+            'api_token' =>  hash('sha256', $token),
         ]);
+
 
         $user->assignRole('user');
 
-       return redirect()->route('users_list');
+        return redirect()->route('users_list');
+
     }
 
     public function create_category(Request $request){

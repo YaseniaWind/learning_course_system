@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <tiptap-buttons :editor="editor"  class="tiptap_header"/>
+    <tiptap-buttons :editor="editor"  class="tiptap_header" @addImage="addImage"/>
 
     <editor-content :editor="editor" class="tiptap_list" />
   </div>
@@ -16,6 +16,7 @@ import TableHeader from "@tiptap/extension-table-header";
 import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
 import TiptapButtons from "./TiptapButtons.vue";
+import Image from '@tiptap/extension-image'
 
 const CustomTableCell = TableCell.extend({
   addAttributes() {
@@ -66,6 +67,16 @@ export default {
     },
   },
 
+  methods:{
+     addImage() {
+      const url = prompt("URL");
+
+      if(url){
+        this.editor.chain().focus().setImage({ src: url }).run()
+      }
+  }
+  },
+
   mounted() {
     this.editor = new Editor({
       content: "<p>I’m running Tiptap with Vue.js. 🎉</p>",
@@ -75,6 +86,7 @@ export default {
           resizable: true,
         }),
         TableRow,
+        Image,
         TableHeader,
         // Default TableCell
         // TableCell,
@@ -105,7 +117,8 @@ export default {
       default: "",
     },
   },
-};
+
+}
 </script>
 <style>
 .tiptap_header{

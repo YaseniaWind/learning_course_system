@@ -30,19 +30,19 @@
                     @if(Auth::user()->hasRole('admin'))
 
 
-                    <a class="link-dark text-uppercase" style="margin-left:24px; margin-top: -15px;"  href="{{ url('/admin_panel') }}" >Панель администратора </a>
-                    <a href="{{ url('/home') }}" class="link-dark text-uppercase" style="margin-left:24px; margin-top: -15px;">Личный кабинет</a>
+                    <a class="link-dark mt-2 text-uppercase" style="margin-left:24px; margin-top: -15px;"  href="{{ url('/admin_panel') }}" >Панель администратора </a>
+                    <a href="{{ url('/home') }}" class="link-dark mt-2 text-uppercase" style="margin-left:24px; margin-top: -15px;">Личный кабинет</a>
 
                     @else
-                    <a href="{{ url('/home') }}" class="link-dark text-uppercase" style="margin-left:24px; margin-top: -15px;">Личный кабинет</a>
+                    <a href="{{ url('/home') }}" class="link-dark mt-2 text-uppercase" style="margin-left:24px; margin-top: -15px;">Личный кабинет</a>
                     @endif
 
                     @else
 
-                    <a href="{{ route('login') }}" class="link-dark text-uppercase" style="margin-left:24px;">Войти</a>
+                    <a href="{{ route('login') }}" class="link-dark mt-2 text-uppercase" style="margin-left:24px;">Войти</a>
 
                     @if (Route::has('register'))
-                   <a href="{{ route('register') }}" class="btn btn-dark text-uppercase" style="margin-left:24px;">Регистрация</a>
+                   <a href="{{ route('register') }}" class=" mt-2 btn btn-dark text-uppercase" style="margin-left:24px;">Регистрация</a>
 
                     @endif
                 @endauth

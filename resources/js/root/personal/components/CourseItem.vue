@@ -178,7 +178,7 @@
       <div class="content">
 
         <div class="cours">
-          <div class="chapters" style="">
+          <div class="chapters" style="width: 400px !important;">
             <div v-show="visible">
 
               <div class="cursor-pointer">
@@ -221,7 +221,11 @@
                 </div>
 
                 <div v-else>
-                        <button  class="btn btn-secondary col-12"  >Книга загружена, нажмите "завершить"</button>
+                    <div class="alert alert-success" role="alert">
+  Книга загружена, нажмите "завершить"
+</div>
+
+                         <button  class="btn btn-secondary col-12" @click="uploadsucces = false" >Редактировать</button>
                 </div>
 
                <book-items :booksitem="books" @sening="Boop" @Remove="Delete" />
@@ -262,7 +266,20 @@ export default {
       body: "",
       sel: null,
       titlebook: "Курс",
-      books: [],
+      books: [
+        {
+        id: Date.now(),
+        title: 'Титульный лист',
+        body: '<p style=\"text-align: center\"><strong>МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РЕСПУБЛИКИ КАЗАХСТАН</strong></p><p style=\"text-align: center\"><strong>ГККП «Алматинский государственный политехнический колледж»</strong></p><p style=\"text-align: center\"><strong>Управления образования города Алматы</strong></p><p><br><br><br></p><p style=\"text-align: right\"><strong>ДОПУЩЕН К ЗАЩИТЕ</strong></p><p style=\"text-align: right\">Заместитель директора&nbsp;</p><p style=\"text-align: right\">по учебной работе</p><p style=\"text-align: right\">_____________&nbsp; М. Мәлікова</p><p style=\"text-align: right\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 февраля&nbsp; 2022 года</p><p><br><br><br></p><p style=\"text-align: center\"><strong>ДИПЛОМНЫЙ ПРОЕКТ</strong></p><p style=\"text-align: center\">на тему: <strong>«РАЗРАБОТКА »</strong></p><p style=\"text-align: center\"><br><br></p><p style=\"text-align: center\">ПОЯСНИТЕЛЬНАЯ ЗАПИСКА</p><p style=\"text-align: center\">РК АГПК 1304033 ДП ПЗ</p><p style=\"text-align: center\"><br><br></p><table style=\"width: 700px; margin:0 auto;\"><tbody><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">Заведующий отделением «ИС»</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">Рецензент</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">___________&nbsp;</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">__________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">«24» &nbsp;&nbsp;&nbsp;02&nbsp; &nbsp;&nbsp;2022&nbsp; г.</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">«24» &nbsp;&nbsp;&nbsp;02&nbsp; &nbsp;&nbsp;2022&nbsp; г.</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">Председатель ПЦК «ИС»</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">Руководитель</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">___________ &nbsp;</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">__________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">«24» &nbsp;&nbsp;&nbsp;02&nbsp; &nbsp;&nbsp;2022&nbsp; г.</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">«24» &nbsp;&nbsp;&nbsp;02&nbsp; &nbsp;&nbsp;2022&nbsp; г.</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">Консультант по экономике</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">Дипломники</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">___________&nbsp;</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">___________&nbsp;</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">«21»&nbsp; &nbsp;&nbsp;&nbsp;02&nbsp; &nbsp;2022&nbsp; г.</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">«24» &nbsp;&nbsp;&nbsp;02&nbsp; &nbsp;&nbsp;2022&nbsp; г.</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">Консультант по охране труда и ТБ</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">Нормоконтроль</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">___________&nbsp;</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">__________</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">«22» &nbsp;&nbsp;&nbsp;02&nbsp; &nbsp;2022&nbsp; г.</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\">«25» &nbsp;&nbsp;&nbsp;02&nbsp; &nbsp;&nbsp;2022&nbsp; г.</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\"></p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\"></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\"></p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: null\"><p style=\"text-align: center\"></p></td></tr></tbody></table><p style=\"text-align: center\"><br><br></p><p style=\"text-align: center\">Алматы 2022</p><p style=\"text-align: center\"></p><p></p><p><br></p>',
+        titlebook: this.titlebook,
+      },
+      {
+        id: Date.now(),
+        title: 'Введение',
+        body: '<h3 style=\"text-align: center\">Добро пожаловать в систему создание учебных курсов ! </h3><p style=\"text-align: center\">Данная система предоставляет все возможные варианты в реализации и создание документации и редактирование текста. Данный тектовой редактор дает вам полный контроль над каждым аспектом работы с текстом. Он настраиваемый, поставляется с множеством расширений, интуитивно понятен и приятен в работе.<br><br></p>',
+        titlebook: this.titlebook,
+      }
+      ],
     };
   },
   components: {

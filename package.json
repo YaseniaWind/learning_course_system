@@ -30,6 +30,7 @@
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
+        "@tiptap/extension-image": "^2.0.0-beta.27",
         "vue": "^3.2.36",
         "vue-quill": "^1.5.1",
         "vue-router": "^4.0.16"

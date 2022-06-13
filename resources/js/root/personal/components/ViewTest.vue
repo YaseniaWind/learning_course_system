@@ -1,12 +1,13 @@
 <template>
-  <div>
+  <center >
    <div v-if="!testr">
  <div v-for="test in testItems" :key="test.id" style="margin-bottom: 25px;">
-    <b>{{test.quest}}</b>
-
+    <h4>Вопрос: <b>{{test.quest}}</b></h4>
+<br>
     Варианты ответа: <br>
     <ul v-for=" t in test.anserws" :key="t.q">
-    {{t.q}} <input type="radio" id="one"   @click="test.useransers = t.q "/>
+     {{t.q}} <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" @click="test.useransers = t.q " />
+
 
 
     </ul>
@@ -14,21 +15,24 @@
 
     </div>
     <br>
-     <button @click="ShowResult">Показать результаты </button>
+     <button @click="ShowResult" class="btn btn-dark">Показать результаты </button>
    </div>
 
 
 
 <div v-else>
-<div v-for="r in currentResult" :key="r">
-<li>Вопрос : {{r.questTest}}</li>
+<ul v-for="r in currentResult" :key="r">
+<center><b>Вопрос : {{r.questTest}}</b></center>
+<br>
 <li>Ваш ответ : {{r.anserwsUser}}</li>
 <li>Правильный ответ : {{r.trueAnserw}}</li>
-</div>
+</ul>
+
 <li v-if="ball">Общий бал в этом тесте составил: {{ball}} % </li>
-<center> <button  class="btn btn-outline-danger" @click="$emit('getResult', ball) ">Получить сертификат</button></center>
+
+<center> <button  class="btn btn-outline-danger mt-3" @click="$emit('getResult', ball) ">Получить сертификат</button></center>
 </div>
-  </div>
+  </center>
 
 </template>
 

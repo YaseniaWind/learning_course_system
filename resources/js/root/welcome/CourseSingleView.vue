@@ -17,7 +17,7 @@
 
 
 <center v-if="testrunnow">
- <button class="btn btn-primary m-5 p-2" @click="TestNowStart">
+ <button class="btn btn-dark m-5 p-2" @click="TestNowStart">
               Начать тестирование
           </button>
 </center>
@@ -39,10 +39,10 @@
 <view-test :testItemsData="course.test" @getResult="getResult" />
 
 
-<img style="display:none" class="img-t" src="https://i.ibb.co/g91jBY2/6-vfdfbd.webp" crossorigin="anonymous"/>
+<img style="display:none" class="img-t" src="https://i.ibb.co/ggMK0Nr/fdghjk.webp" crossorigin="anonymous"/>
 <br>
      <center>
-         <canvas id="canvas" />
+         <canvas id="canvas" width="100%" height="100%"/>
      </center>
 
    <!-- <center>
@@ -134,8 +134,8 @@ export default {
             course:this.$attrs['coursedata'],
             CourseChapter : [],
             user: {
-                name: 'Гэвин',
-                lastname: 'Рид'
+                name: 'Имя',
+                lastname: 'Фамилия'
             }
 
         }
@@ -164,17 +164,16 @@ canvas.width = $('.img-t').width();
 canvas.crossOrigin = "Anonymous";
 canvas.height = $('.img-t').height();
 ctx.drawImage($('.img-t').get(0), 0, 0);
-ctx.font = "25pt Times New Romans";
+ctx.font = "bold 15pt Montserrat";
 
 
     //redraw image
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.drawImage($('.img-t').get(0), 0, 0);
     //refill text
-    ctx.fillStyle = "#00FFFF";
-    ctx.fillText('Сертификат',150,80);
-    ctx.fillText(this.user.name + '       ' + this.user.lastname  ,100,180);
-    ctx.fillText('Общий бал:  '+ ball + '%' ,110,230);
+    ctx.fillStyle = "#2d2d2d";
+    ctx.fillText(this.user.name + '   ' + this.user.lastname  ,100,133);
+    ctx.fillText('Общий бал:  '+ ball + '%' ,30,190);
 
 $('.button-t').click(function(){
     console.log(ctx.getImageData(50, 50, 100, 100));
@@ -190,5 +189,8 @@ $('.button-t').click(function(){
 </script>
 
 <style>
-
+	#canvas{
+	max-width: 1000px !important;
+	width: 100%;
+	}
 </style>

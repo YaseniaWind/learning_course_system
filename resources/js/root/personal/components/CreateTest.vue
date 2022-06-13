@@ -60,7 +60,7 @@
 
 
 
-    <hr>
+
 
     <div v-if="testItems.length > 0">
 
@@ -82,7 +82,7 @@
         </div>
     </div>
 
- <button @click="$emit('DoneTest', testItems)" class="btn btn-danger">Пройти тест</button>
+ <!-- <button @click="$emit('DoneTest', testItems)" class="btn btn-danger">Пройти тест</button> -->
 </template>
 
 <script>
